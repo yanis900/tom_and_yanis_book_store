@@ -1,6 +1,7 @@
 from lib.database_connection import DatabaseConnection
 from lib.artist_repository import ArtistRepository
 from lib.album_repository import AlbumRepository
+from lib.book_repository import BookRepository
 
 # Connect to the database
 connection = DatabaseConnection()
@@ -21,5 +22,9 @@ for artist in artists:
 
 for album in albums:
     print(album)
-    
-# album_id_1 = 
+
+book_repository = BookRepository(connection)
+books = book_repository.all()
+print('These are my lovely books (excluding 50 shades):')
+for book in books:
+    print(book)
